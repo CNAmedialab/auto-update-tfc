@@ -345,8 +345,25 @@ def main_process(max_pages=40):
                     print(f">>> 標題: {title}")
                     
                     # 檢查是否遇到重複文章
-                    if last_crawled_title and title == last_crawled_title:
-                        print(f">>> 遇到重複文章：{title}")
+                    duplicate = False
+                    try:
+                        with open('report_uploaded.jsonl', 'r', encoding='utf-8') as f:
+                            for line in f:
+                                try:
+                                    record = json.loads(line)
+                                    if record.get('title') == title:
+                                        duplicate = True
+                                        break
+                                except Exception:
+                                    continue
+                    except FileNotFoundError:
+                        pass
+
+                    if duplicate:
+                        print(f">>> 遇到重複文章，跳過：{title}")
+                        duplicate_found = True
+                        break
+                    elif last_crawled_title and title == last_crawled_title:
                         print(">>> 停止爬取")
                         duplicate_found = True
                         break
