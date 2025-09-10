@@ -189,7 +189,6 @@ $RECYCLE.BIN/
 
 # Project specific files
 # Crawler history and data files
-tfc_crawler_history.json
 *.json.bak
 crawled_data/
 output/
