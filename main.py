@@ -259,7 +259,7 @@ def embedding_and_save(report):
         print(f"    ❌ 處理出錯: {e}")
         return {'status': 'error', 'backup': False}
 
-def main_process(max_pages=40):
+def main_process(max_pages=10):
     """
     爬蟲 -> embedding_and_save -> save to jsonl and es
     :param max_pages: 最大爬取頁數
@@ -563,7 +563,7 @@ if __name__ == "__main__":
     print("啟動查核報告爬蟲")
 
     try:
-        result = main_process(max_pages=40)
+        result = main_process(max_pages=10)
         
         if result:
             print(f"\n>>> 執行結果總結:")
