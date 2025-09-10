@@ -544,6 +544,8 @@ def main_process(max_pages=40):
 
 if __name__ == "__main__":
     # 執行pipeline
+    print("啟動查核報告爬蟲")
+
     try:
         result = main_process()
         
@@ -560,9 +562,11 @@ if __name__ == "__main__":
                 success_rate = (result['success'] / result['total']) * 100
                 print(f"\n>>> ES上傳成功率: {success_rate:.1f}%")
         
-        print("\n✅ 優化Pipeline執行完成！")
+        print("\n✅ 查核報告更新完畢！")
+        print("更新日期：",datetime.now().strftime("%Y-%m-%d %H:%M"))
+        print("="*1000)
         
     except Exception as e:
-        print(f"\n❌ Pipeline失敗: {e}")
+        print(f"\n❌ 查核報告更新失敗: {e}")
         import traceback
         traceback.print_exc()
