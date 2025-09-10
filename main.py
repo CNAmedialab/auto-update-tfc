@@ -559,7 +559,7 @@ if __name__ == "__main__":
         
         print("\n✅ 查核報告更新完畢！")
         print("更新日期：",datetime.now().strftime("%Y-%m-%d %H:%M"))
-        print("="*1000)
+        print("="*50)
         
     except Exception as e:
         print(f"\n❌ 查核報告更新失敗: {e}")
