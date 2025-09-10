@@ -563,7 +563,7 @@ if __name__ == "__main__":
     print("啟動查核報告爬蟲")
 
     try:
-        result = main_process(max_pages=2)
+        result = main_process(max_pages=40)
         
         if result:
             print(f"\n>>> 執行結果總結:")
