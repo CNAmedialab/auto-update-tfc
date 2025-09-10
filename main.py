@@ -144,8 +144,8 @@ def save_to_es(data, max_retries=3, retry_delay=2):
                     es = uploader.es_client
                     search_result = es.search(
                         index=index_name, 
-                        body=search_query,
-                        timeout='5s'  # 設定超時
+                        timeout='5s',  # 設定超時
+                        **search_query
                     )
                     
                     if search_result['hits']['total']['value'] > 0:
