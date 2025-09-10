@@ -361,8 +361,7 @@ def main_process(max_pages=40):
 
                     if duplicate:
                         print(f">>> 遇到重複文章，跳過：{title}")
-                        duplicate_found = True
-                        break
+                        continue
                     elif last_crawled_title and title == last_crawled_title:
                         print(">>> 停止爬取")
                         duplicate_found = True
