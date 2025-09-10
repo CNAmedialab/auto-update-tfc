@@ -547,7 +547,7 @@ if __name__ == "__main__":
     print("啟動查核報告爬蟲")
 
     try:
-        result = main_process()
+        result = main_process(max_pages=2)
         
         if result:
             print(f"\n>>> 執行結果總結:")
@@ -556,11 +556,6 @@ if __name__ == "__main__":
             print(f"    跳過重複: {result['skip']} 篇")
             print(f"    處理失敗: {result['error']} 篇")
             print(f"    備份成功: {result['backup']} 篇")
-                
-            # 成功率計算
-            if result['total'] > 0:
-                success_rate = (result['success'] / result['total']) * 100
-                print(f"\n>>> ES上傳成功率: {success_rate:.1f}%")
         
         print("\n✅ 查核報告更新完畢！")
         print("更新日期：",datetime.now().strftime("%Y-%m-%d %H:%M"))
